@@ -11,6 +11,26 @@ fn read_input() {
     println!("Goodbye!")
 }
 
+fn read_number() -> i32 {
+    let mut input = String::new();
+    
+    println!("Please tell me how many elements you'd like to sum.");
+    io::stdin().read_line(&mut input).expect("Failed to read input");
+    let mut a:i32 =  input.trim().parse().unwrap();
+    let mut counter = a;
+    let mut ins:Vec<i32> = vec![];
+
+    while counter < 0 {
+        input.clear();
+        println!("Please enter a number");
+        io::stdin().read_line(&mut input).expect("Failed to read input");
+        input.trim();
+        let mut b: i32 = input.parse().unwrap();
+        ins.push(b);
+    }
+    summation(ins)
+}
+
 fn process_numbers(numbers: &[i32]) {
     // initialize sum -> zero
     let mut sum = 0;
@@ -30,6 +50,19 @@ fn process_numbers(numbers: &[i32]) {
         println!("The sum is odd");
     }
 }
+fn summation(numbers: Vec<i32>) -> i32 {
+    let mut result: i32 = 0;
+    for number in numbers {
+        result += number;
+    }
+    result
+}
+
+
 fn main() {
-    process_numbers(&[1,2,3]);
+    let a = vec![1, 2, 3, 4, 5];
+    println!("{}", summation(a));
+    let b = read_number();
+    println!("{}", b);
+
 }
