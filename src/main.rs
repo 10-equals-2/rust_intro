@@ -16,19 +16,19 @@ fn read_number() -> i32 {
     
     println!("Please tell me how many elements you'd like to sum.");
     io::stdin().read_line(&mut input).expect("Failed to read input");
-    let mut a:i32 =  input.trim().parse().unwrap();
-    let mut counter = a;
+    let a:i32 =  input.trim().parse().unwrap();
+    let mut counter = 0;
     let mut ins:Vec<i32> = vec![];
 
-    while counter < 0 {
+    while counter <  a {
+        counter += 1;
         input.clear();
         println!("Please enter a number");
         io::stdin().read_line(&mut input).expect("Failed to read input");
-        input.trim();
-        let mut b: i32 = input.parse().unwrap();
+        let b: i32 = input.trim().parse().unwrap();
         ins.push(b);
     }
-    summation(ins)
+    summation(ins)/a
 }
 
 fn process_numbers(numbers: &[i32]) {
@@ -60,9 +60,5 @@ fn summation(numbers: Vec<i32>) -> i32 {
 
 
 fn main() {
-    let a = vec![1, 2, 3, 4, 5];
-    println!("{}", summation(a));
-    let b = read_number();
-    println!("{}", b);
-
+    println!("The Average of the input numbers is: {}", read_number());
 }
