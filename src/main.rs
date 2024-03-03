@@ -1,6 +1,7 @@
 use std::io;
 
-fn read_input() {
+fn read_input()
+{
     let mut input = String::new();
     while input.trim() != "stop" {
         input.clear();
@@ -53,11 +54,9 @@ fn process_numbers(numbers: &[i32]) {
 fn summation(numbers: Vec<i32>) -> i32 {
     let mut result: i32 = 0;
     for number in numbers {
-        result += number;
-    }
+        result += number;}
     result
 }
-
 
 fn main() {
     println!("The Average of the input numbers is: {}", read_number());
