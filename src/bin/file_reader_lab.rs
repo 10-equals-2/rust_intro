@@ -2,6 +2,13 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::env;
 
+
+/// This function reads a line from stdin and looks to open that file
+///
+/// # Examples:
+/// ```
+/// let input = read_stdin();
+/// ```
 fn main() {
     let args: Vec<String> = env::args().collect();
     println!("My path is {}", args[0]);
